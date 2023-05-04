@@ -7,8 +7,8 @@ model_parameters:
   - {name: V0_type, type: text, _: "'optimized'"}  # choose default or optimized initial conditions for the membrane potential
   - {name: synapse_type, type: text, _: "'static_synapse'"}  # type of synapses in the model
   - {name: sim_params, _: sim_params.py}  # default simulation parameters
-  - {name: model_time_sim, type: float, _: "1000."}  # biological time to be simulated in ms
-  - {name: model_time_presim, _: "100."}  # in ms
+  - {name: model_time_sim, type: float, _: "10000."}  # biological time to be simulated in ms
+  - {name: model_time_presim, _: "1000."}  # in ms
   - {name: rng_seed, _: "55"}  # rng seed
   - {name: record_spikes, type: string, _: ""}  # change to 'spike_recorder' for spike recordings
   - {name: kwds, separator: ;, type: string, _: "{}"}  # can be used for passing arguments to SetKernelStatus, such as max_buffer_size_spike_data. If no arguments should be passed leave this empty. If something should be passed insert a dictionary, eg: {'max_buffer_size_spike_data': 10}
