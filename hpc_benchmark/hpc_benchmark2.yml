@@ -49,7 +49,6 @@ substituteset:
 
 step:
     - name: bench
-      depend: build
       use:
       - model_commands, model_files, model_substitutions
       - from: user_config.yaml
