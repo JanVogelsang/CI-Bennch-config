@@ -72,7 +72,7 @@ step:
       - model_files,simulation_substitutions
       do:
         done_file: $ready_file
-        _: $submit_cmd --dependency=afterok:$$DEP $job_file
+        _: $submit_cmd $job_file
 
 # analysis step
 analyser:
