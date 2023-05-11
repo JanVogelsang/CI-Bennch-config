@@ -61,7 +61,6 @@ substituteset:
 
 step:
     - name: bench
-      depend: build
       use:
       - model_commands
       - from: user_config.yaml
