@@ -1,13 +1,13 @@
 model_parameters:
   - {name: model_name, type: string, _: "microcircuit"}  # for identifying the model, can be any unique string
   - {name: net_params, type: string, _: "network_params.py"}  # default network parameters
-  - {name: scale_N, type: float, _: "1."}  # scaling the number of neurons, 1. -> original model
-  - {name: scale_K, type: float, _: "1."}  # scaling the indegree, 1. -> original model
+  - {name: scale_N, type: float, _: ".1"}  # scaling the number of neurons, 1. -> original model
+  - {name: scale_K, type: float, _: ".1"}  # scaling the indegree, 1. -> original model
   - {name: poisson_input, type: string, _: "False"}  # choose Poisson or DC input
   - {name: V0_type, type: text, _: "'optimized'"}  # choose default or optimized initial conditions for the membrane potential
   - {name: synapse_type, type: text, _: "'static_synapse'"}  # type of synapses in the model
   - {name: sim_params, _: sim_params.py}  # default simulation parameters
-  - {name: model_time_sim, type: float, _: "1000."}  # biological time to be simulated in ms
+  - {name: model_time_sim, type: float, _: "100."}  # biological time to be simulated in ms
   - {name: model_time_presim, _: "100."}  # in ms
   - {name: rng_seed, _: "55"}  # rng seed
   - {name: record_spikes, type: string, _: ""}  # change to 'spike_recorder' for spike recordings
