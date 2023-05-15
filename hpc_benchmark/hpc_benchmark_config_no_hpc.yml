@@ -13,7 +13,7 @@ model_parameters:
   - {name: dendritic_delay, type: float, _: "1.5"}  # dendritic delay of all connections
   - {name: axonal_delay, type: float, _: "0.0"}  # axonal delay of all connections
 run_parameters:
-  script_path: hpc_benchmark.py
+  script_path: hpc_benchmark_no_hpc.py
 metrics:
   - rng_seed
   - num_nodes
