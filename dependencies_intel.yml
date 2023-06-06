@@ -15,3 +15,4 @@ jureca:
     - git/2.33.1-nodocs
     # - IPython/8.5.0
     - PyYAML/5.4.1
+    - JUBE/2.5.1
