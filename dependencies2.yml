@@ -28,7 +28,7 @@ jureca:
     USERSOFTWARE_DIR: "$$USERSOFTWARE_djinb33/ci-bennch/jureca"
     MODULE_LIST: *module-list
     PIP_LIST: *pip-list
-  env:
+  vars:
     - 'eval TEMP_DIR="$TEMP_DIR"'
     - 'eval USERSOFTWARE_DIR="$USERSOFTWARE_DIR"'
     - 'jutil env activate -p cjinb33'
@@ -49,7 +49,7 @@ jusuf:
     USERSOFTWARE_DIR: "$$USERSOFTWARE_djinb33/ci-bennch/jusuf"
     MODULE_LIST: *module-list
     PIP_LIST: *pip-list
-  env:
+  vars:
     - 'eval TEMP_DIR="$TEMP_DIR"'
     - 'eval USERSOFTWARE_DIR="$USERSOFTWARE_DIR"'
     - 'jutil env activate -p cjinb33'
