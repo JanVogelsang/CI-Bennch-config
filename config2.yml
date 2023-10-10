@@ -23,7 +23,7 @@ benchmarks:
       - {name: scale, type: float, _: "0.01"}                 # scaling the number of neurons, 1. -> original model
       - {name: record_spikes, type: string, _: "False"}       # whether to write spiking output to file, either True or False
       - {name: rng_seed, type: int, _: "42"}                  # rng seed for NEST, accepts a list in the format a,b,c,... for generating multiple runs
-      - {name: kwds, separator: ;, type: string, _: ""}
+      - {name: kwds, type: string, _: "{}"}
     run_parameters:
       script_path: hpc_benchmark_2.py
     results:
