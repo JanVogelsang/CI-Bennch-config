@@ -14,7 +14,7 @@ benchmarks:
         threads_per_task: "16"
         walltime: "00:10:00"
     model_parameters:
-      - {name: scale, type: float, _: "8.*$num_nodes"}                 # scaling the number of neurons, 1. -> original model
+      - {name: scale, type: float, mode: python, _: "8.*$num_nodes"}                 # scaling the number of neurons, 1. -> original model
   microcircuit:
     machine_parameters:
       jusuf:
