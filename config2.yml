@@ -2,6 +2,9 @@ repositories:
   common:
     url: https://github.com/JanVogelsang/ci-bennch-models.git
     branch: main
+software_parameters:
+  modulefile: nest.module
+  planfile: nest.planfile
 benchmarks:
   hpc_benchmark:
     repository: common
