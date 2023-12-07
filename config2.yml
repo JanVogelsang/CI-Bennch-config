@@ -5,6 +5,8 @@ repositories:
 software_parameters:
   modulefile: nest2.module
   planfile: nest.planfile
+  simulator_repo_url: https://github.com/nest/nest-simulator
+  simulator_repo_branch: master
 benchmarks:
   hpc_benchmark:
     repository: common
