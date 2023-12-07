@@ -15,7 +15,6 @@ modules: &module-list >-
   Autotools/20220317
   git/2.36.0-nodocs
   IPython/8.5.0
-  JUBE/2.5.1
 pip: &pip-list >-
   future
   nested_dict
@@ -42,6 +41,7 @@ jureca:
     - 'module load $MODULE_LIST'
     - 'source benchmarking-env/bin/activate'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/bennchplot/"'
+    - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/JUBE/"'
     - 'export PATH="$(pwd):$USERSOFTWARE_DIR/git-annex:$PATH"'
 jusuf:
   variables:
@@ -63,4 +63,5 @@ jusuf:
     - 'module load $MODULE_LIST'
     - 'source benchmarking-env/bin/activate'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/bennchplot/"'
+    - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/JUBE/"'
     - 'export PATH="$(pwd):$USERSOFTWARE_DIR/git-annex:$PATH"'
