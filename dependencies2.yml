@@ -36,14 +36,13 @@ jureca:
   init:
     - 'module load $MODULE_LIST'
     - 'python -m venv --system-site-packages benchmarking-env'
+    - 'benchmarking-env/bin/pip install $USERSOFTWARE_DIR/JUBE/'
     - 'benchmarking-env/bin/pip install $PIP_LIST'
     - 'ln -s "$USERSOFTWARE_DIR/builder/build.sh" "$(pwd)/build"'
   load:
     - 'module load $MODULE_LIST'
     - 'source benchmarking-env/bin/activate'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/bennchplot/"'
-    - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/JUBE/"'
-    - 'export PATH=$PATH:$USERSOFTWARE_DIR/JUBE/install/bin'
     - 'export PATH="$(pwd):$USERSOFTWARE_DIR/git-annex:$PATH"'
 jusuf:
   variables:
@@ -59,12 +58,11 @@ jusuf:
   init:
     - 'module load $MODULE_LIST'
     - 'python -m venv --system-site-packages benchmarking-env'
+    - 'benchmarking-env/bin/pip install $USERSOFTWARE_DIR/JUBE/'
     - 'benchmarking-env/bin/pip install $PIP_LIST'
     - 'ln -s "$USERSOFTWARE_DIR/builder/build.sh" "$(pwd)/build"'
   load:
     - 'module load $MODULE_LIST'
     - 'source benchmarking-env/bin/activate'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/bennchplot/"'
-    - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/JUBE/install/"'
-    - 'export PATH=$PATH:$USERSOFTWARE_DIR/JUBE/install/bin'
     - 'export PATH="$(pwd):$USERSOFTWARE_DIR/git-annex:$PATH"'
