@@ -42,6 +42,7 @@ jureca:
     - 'source benchmarking-env/bin/activate'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/bennchplot/"'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/JUBE/"'
+    - 'export PATH=$PATH:$USERSOFTWARE_DIR/JUBE/install/bin'
     - 'export PATH="$(pwd):$USERSOFTWARE_DIR/git-annex:$PATH"'
 jusuf:
   variables:
@@ -63,5 +64,6 @@ jusuf:
     - 'module load $MODULE_LIST'
     - 'source benchmarking-env/bin/activate'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/bennchplot/"'
-    - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/JUBE/"'
+    - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/JUBE/install/"'
+    - 'export PATH=$PATH:$USERSOFTWARE_DIR/JUBE/install/bin'
     - 'export PATH="$(pwd):$USERSOFTWARE_DIR/git-annex:$PATH"'
