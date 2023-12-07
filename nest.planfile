@@ -28,7 +28,7 @@ build_install_test () { :; }
 source_get () {
     # Only clone if target directory is empty
     if [ -z "$(ls -A $SIMULATOR_REPO_DIR)" ]; then
-        git clone --single-branch --branch="$SIMULATOR_BRANCH" --depth=1 "$SIMULATOR_REPO" "$SIMULATOR_REPO_DIR"
+        git clone --single-branch --branch="$CB_SIMULATOR_BRANCH" --depth=1 "$CB_SIMULATOR_REPO" "$SIMULATOR_REPO_DIR"
     fi
 }
 
@@ -38,7 +38,7 @@ build_package () {
 	set -x
 	# CONFIGURE_OPTIONS variable needs to be split, so no quotes
 	# shellcheck disable=SC2086
-	cmake ${CONFIGURE_OPTIONS} -DCMAKE_INSTALL_PREFIX:PATH="$TARGET" "$SOURCE" 2>&1 | tee "${LOG}/cmake.log"
+	cmake ${CONFIGURE_OPTIONS} -DCMAKE_INSTALL_PREFIX:PATH="$TARGET" "$SIMULATOR_REPO_DIR" 2>&1 | tee "${LOG}/cmake.log"
 	make -j "${MAKE_THREADS:-$(nproc)}" 2>&1 | tee "${LOG}/make.log"
 	set +x
 }
@@ -76,7 +76,7 @@ module_install () {
             -e "s%\${\?VERSION}\?%$VERSION%g" \
             -e "s%\${\?VARIANT}\?%$VARIANT%g" \
             -e "s%\${\?PLAN}\?%$PLAN%g" \
-            -e "s%\${\?SOURCE}\?%$SOURCE%g" \
+            -e "s%\${\?SIMULATOR_REPO_DIR}\?%$SIMULATOR_REPO_DIR%g" \
             -e "s%\${\?TARGET}\?%$TARGET%g" \
             -e "s%\${\?BUILD}\?%$BUILD%g" \
             -e "s%\${\?LOG}\?%$LOG%g" \
