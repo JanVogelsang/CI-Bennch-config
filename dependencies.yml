@@ -1,5 +1,5 @@
 modules: &module-list >-
-  Stages/2023
+  Stages/2024
   GCCcore/.12.3.0
   GCC/12.3.0
   CMake/3.26.3
