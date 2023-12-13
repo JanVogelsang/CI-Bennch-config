@@ -43,6 +43,7 @@ jureca:
     - 'module load $MODULE_LIST'
     - 'source benchmarking-env/bin/activate'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/bennchplot/"'
+    - 'export PATH="$(pwd):$PATH"'
 jusuf:
   variables:
     TEMP_DIR: "$$SCRATCH_cjinb33/ci-bennch/jusuf/userdata"   # Directory to temporary files accessible from both login and compute nodes
@@ -64,3 +65,4 @@ jusuf:
     - 'module load $MODULE_LIST'
     - 'source benchmarking-env/bin/activate'
     - 'export PYTHONPATH="$PYTHONPATH:$USERSOFTWARE_DIR/bennchplot/"'
+    - 'export PATH="$(pwd):$PATH"'
