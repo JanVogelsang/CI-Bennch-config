@@ -1,7 +1,7 @@
 repositories:
   thesis:
     url: https://github.com/JanVogelsang/ci-bennch-models.git
-    branch: master-thesis-axonal-delays
+    branch: post-thesis
 repositories:
   base:
     url: https://github.com/JanVogelsang/CI-Bennch-config.git
@@ -10,26 +10,28 @@ extends:
   repo: base
   config_file: config.yml
 software_parameters:
-  simulator_repo_url: https://github.com/JanVogelsang/nest-simulator
-  simulator_repo_branch: ax-delay-rework-adjacency-stdp
+  simulator_repo_url: https://github.com/nest/nest-simulator
+  simulator_repo_branch: master
 benchmarks:
   hpc_benchmark:
     repository: thesis
     machine_parameters:
       jureca:
-        num_nodes: "1"
+        num_nodes: "1,2,4,8,16,32"
         tasks_per_node: "2"
         threads_per_task: "64"
-        walltime: "00:10:00"
+        walltime: "00:20:00"
       jusuf:
-        num_nodes: "1"
+        num_nodes: "1,2,4,8,16,32"
         tasks_per_node: "2"
         threads_per_task: "64"
-        walltime: "00:10:00"
+        walltime: "00:20:00"
     model_parameters:
-      - {name: scale, type: float, _: "8."}                 # scaling the number of neurons, 1. -> original model
+      - {name: scale, type: float, _: "8.*$num_nodes"}
+      - {name: dendritic_delay, type: float, _: "5.0"}
+      - {name: axonal_delay, type: float, _: "0.0"}
     run_parameters:
-      script_path: hpc_benchmark_no_hpc.py
+      script_path: hpc_benchmark_static.py
     params_rec:
       - scale
       - rng_seed
