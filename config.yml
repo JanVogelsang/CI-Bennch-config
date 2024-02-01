@@ -27,6 +27,8 @@ benchmarks:
       - {name: model_time_presim, type: float, _: "500."}     # presimulation time for avoiding initial transients in ms
       - {name: scale, type: float, _: "1."}                 # scaling the number of neurons, 1. -> original model
       - {name: record_spikes, type: string, _: "False"}       # whether to write spiking output to file, either True or False
+      - {name: compressed_spikes, type: string, _: "True"}
+      - {name: sort_connections, type: string, _: "True"}
       - {name: rng_seed, _: "654,55,92743"}  # rng seed for NEST, accepts a list in the format a,b,c,... for generating multiple runs
       - {name: kwds, type: string, _: "{}"}
     run_parameters:
