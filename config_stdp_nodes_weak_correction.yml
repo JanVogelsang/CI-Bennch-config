@@ -1,0 +1,101 @@
+repositories:
+  thesis:
+    url: https://github.com/JanVogelsang/ci-bennch-models.git
+    branch: master-thesis-axonal-delays
+repositories:
+  base:
+    url: https://github.com/JanVogelsang/CI-Bennch-config.git
+    branch: root
+extends:
+  repo: base
+  config_file: config.yml
+software_parameters:
+  simulator_repo_url: https://github.com/JanVogelsang/nest-simulator
+  simulator_repo_branch: stdp_long_axonal_delays
+benchmarks:
+  hpc_benchmark:
+    repository: thesis
+    machine_parameters:
+      jureca:
+        num_nodes: "1,32"
+        tasks_per_node: "2"
+        threads_per_task: "64"
+        walltime: "00:20:00"
+      jusuf:
+        num_nodes: "1,32"
+        tasks_per_node: "2"
+        threads_per_task: "64"
+        walltime: "00:20:00"
+    model_parameters:
+      - {name: scale, type: float, _: "8.*$num_nodes"}
+      - {name: i, type: int, _: "0,1,2,3,4"}
+      - {name: dendritic_delay, type: float, _: "(5.0,2.5,2.0,1.0,0.0)[$i]"}
+      - {name: axonal_delay, type: float, _: "(0.0,2.5,3.0,4.0,5.0)[$i]"}
+      - {name: lambda, type: float, _: "0.0"}
+    run_parameters:
+      script_path: hpc_benchmark_static.py
+    params_rec:
+      - scale
+      - rng_seed
+      - num_nodes
+      - threads_per_task
+      - tasks_per_node
+      - model_time_sim
+      - model_time_presim
+      - dendritic_delay
+      - axonal_delay
+    metrics_mean:
+      - time_construction_create
+      - time_construction_connect
+      - time_simulate
+      - time_collocate_spike_data
+      - time_communicate_spike_data
+      - time_deliver_spike_data
+      - time_update
+      - time_communicate_target_data
+      - time_gather_spike_data
+      - time_gather_target_data
+      - time_communicate_prepare
+      - time_adjacency_list
+      - time_deliver_node
+      - time_stdp_delivery
+      - time_static_delivery
+      - time_node_archive
+      - time_deliver_conn
+      - py_time_kernel_prepare
+      - py_time_network_local
+      - py_time_network_global
+      - py_time_simulate
+      - py_time_presimulate
+      - py_time_init
+      - py_time_network_prepare
+      - py_time_create
+      - py_time_connect_area
+      - py_time_connect_cc
+      - py_time_connect
+    metrics_sum:
+      - base_memory
+      - base_memory_rss
+      - base_memory_peak
+      - node_memory
+      - node_memory_rss
+      - node_memory_peak
+      - network_memory
+      - network_memory_rss
+      - network_memory_peak
+      - init_memory
+      - init_memory_rss
+      - init_memory_peak
+      - total_memory
+      - total_memory_rss
+      - total_memory_peak
+      - num_connections
+    metrics_step:
+      - local_spike_counter
+user_config:
+  jureca:
+    account: "jinb33"  # slurm account name for job submission
+    partition: "dc-cpu"  # cluster partition, takes system default if left empty
+  jusuf:
+    account:  "icei-hbp-2020-0005"
+    partition: "batch"
