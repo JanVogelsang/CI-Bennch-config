@@ -27,7 +27,7 @@ benchmarks:
         threads_per_task: "64"
         walltime: "00:20:00"
     model_parameters:
-      - {name: scale, type: float, _: "8.*$num_nodes"}
+      - {name: scale, type: float, mode: python, _: "8.*$num_nodes"}
       - {name: dendritic_delay, type: float, _: "5.0"}
       - {name: axonal_delay, type: float, _: "0.0"}
     run_parameters:
