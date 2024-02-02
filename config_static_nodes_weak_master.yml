@@ -2,7 +2,6 @@ repositories:
   thesis:
     url: https://github.com/JanVogelsang/ci-bennch-models.git
     branch: post-thesis
-repositories:
   base:
     url: https://github.com/JanVogelsang/CI-Bennch-config.git
     branch: root
