@@ -36,7 +36,8 @@ jureca:
   init:
     - 'module load $MODULE_LIST'
     - 'python -m venv --system-site-packages benchmarking-env'
-    - 'benchmarking-env/bin/pip install $USERSOFTWARE_DIR/JUBE/'
+    - 'git clone --depth=1 --branch=feature-python-exec https://github.com/JanVogelsang/JUBE.git jube'
+    - 'benchmarking-env/bin/pip install $(pwd)/jube/'
     - 'benchmarking-env/bin/pip install $PIP_LIST'
     - 'ln -s "$USERSOFTWARE_DIR/builder/build.sh" "$(pwd)/build"'
   load:
@@ -58,7 +59,8 @@ jusuf:
   init:
     - 'module load $MODULE_LIST'
     - 'python -m venv --system-site-packages benchmarking-env'
-    - 'benchmarking-env/bin/pip install $USERSOFTWARE_DIR/JUBE/'
+    - 'git clone --depth=1 --branch=feature-python-exec https://github.com/JanVogelsang/JUBE.git jube'
+    - 'benchmarking-env/bin/pip install $(pwd)/jube/'
     - 'benchmarking-env/bin/pip install $PIP_LIST'
     - 'ln -s "$USERSOFTWARE_DIR/builder/build.sh" "$(pwd)/build"'
   load:
