@@ -19,12 +19,12 @@ benchmarks:
         num_nodes: "1,32"
         tasks_per_node: "2"
         threads_per_task: "64"
-        walltime: "00:20:00"
+        walltime: "01:00:00"
       jusuf:
         num_nodes: "1,32"
         tasks_per_node: "2"
         threads_per_task: "64"
-        walltime: "00:20:00"
+        walltime: "01:00:00"
     model_parameters:
       - {name: scale, type: float, mode: python, _: "4.*$num_nodes"}
       - {name: i, type: int, _: "0,1,2,3,4"}
