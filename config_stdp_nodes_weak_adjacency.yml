@@ -3,8 +3,8 @@ repositories:
     url: https://github.com/JanVogelsang/ci-bennch-models.git
     branch: post-thesis
   base:
-    url: https://github.com/JanVogelsang/CI-Bennch-config.git
-    branch: root
+    url: https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.jsc.fz-juelich.de/nest/bennch/configs/configs.git
+    branch: default
 extends:
   repo: base
   config_file: config.yml
